@@ -1,1 +1,29 @@
 <!-- Frontend page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <title> AI/ML Crop Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1> --> CropNectar <--<br>Smart Farming Starts Here : )</h1>
+        <form action="/predict" method="post">
+            <input type="text" name="N" placeholder="Nitrogen (N)" required>
+            <input type="text" name="P" placeholder="Phosphorus (P)" required>
+            <input type="text" name="K" placeholder="Potassium (K)" required>
+            <input type="text" name="temperature" placeholder="Temperature (°C)" required>
+            <input type="text" name="humidity" placeholder="Humidity (%)" required>
+            <input type="text" name="ph" placeholder="pH value" required>
+            <input type="text" name="rainfall" placeholder="Rainfall (mm)" required>
+            <button type="submit">Predict Crop</button>
+        </form>
+
+        {% if result %}
+            <div class="result">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
